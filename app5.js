@@ -4,6 +4,35 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
 
+const station = [
+  { id: 1, code: 'JE01', name: '東京駅' },
+  { id: 2, code: 'JE07', name: '舞浜駅' },
+  { id: 3, code: 'JE12', name: '新習志野駅' },
+  { id: 4, code: 'JE13', name: '幕張豊砂駅' },
+  { id: 5, code: 'JE14', name: '海浜幕張駅' },
+  { id: 6, code: 'JE05', name: '新浦安駅' }
+];
+
+app.get('/keiyo', (req, res) => {
+  res.render('db2', { data: station });
+});
+
+app.get('/keiyo_add', (req, res) => {
+  const { id, code, name, next } = req.query;
+  if (typeof id !== 'string' || !/^[1-9]\d*$/.test(id) ||
+      !Number.isSafeInteger(Number(id)) ||
+      typeof code !== 'string' || !code.trim() ||
+      typeof name !== 'string' || !name.trim()) {
+    return res.status(400).send('正の整数のID、駅コード、駅名を入力してください。');
+  }
+
+  station.push({ id: Number(id), code: code.trim(), name: name.trim() });
+  if (next === 'form') {
+    return res.redirect('/public/keiyo_add.html');
+  }
+  res.render('db2', { data: station });
+});
+
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";

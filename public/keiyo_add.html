@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>京葉線の駅を追加</title>
+</head>
+<body>
+    <h1>京葉線の駅を追加</h1>
+    <form action="/keiyo_add" method="get">
+        <p><label for="id">ID</label> <input type="number" name="id" id="id" min="1" required></p>
+        <p><label for="code">駅コード</label> <input type="text" name="code" id="code" required></p>
+        <p><label for="name">駅名</label> <input type="text" name="name" id="name" required></p>
+        <button type="submit" name="next" value="list">登録して一覧を表示</button>
+        <button type="submit" name="next" value="form">登録して入力画面に戻る</button>
+    </form>
+    <p><a href="/keiyo">駅一覧を見る</a></p>
+</body>
+</html>
