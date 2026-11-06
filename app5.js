@@ -33,6 +33,17 @@ app.get('/keiyo_add', (req, res) => {
   res.render('db2', { data: station });
 });
 
+const sports = [
+  { category: '体操', name: 'ゆか' },
+  { category: '体操', name: '鉄棒' },
+  { category: '柔道', name: '背負投' },
+  { category: '柔道', name: '大外刈' }
+];
+
+app.get('/sports', (req, res) => {
+  res.render('sports', { data: sports });
+});
+
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";

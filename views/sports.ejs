@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>体操と柔道の一覧</title>
+</head>
+<body>
+    <h1>体操と柔道の一覧</h1>
+    <table>
+        <thead><tr><th>競技</th><th>種目・技</th></tr></thead>
+        <tbody>
+        <% for (const row of data) { %>
+            <tr><td><%= row.category %></td><td><%= row.name %></td></tr>
+        <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
