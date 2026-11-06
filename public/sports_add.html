@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>種目・技を追加</title>
+</head>
+<body>
+    <h1>種目・技を追加</h1>
+    <form action="/sports_add" method="get">
+        <p>
+            <label for="category">競技</label>
+            <select name="category" id="category">
+                <option value="体操">体操</option>
+                <option value="柔道">柔道</option>
+            </select>
+        </p>
+        <p><label for="name">種目・技</label> <input type="text" name="name" id="name" maxlength="60" required></p>
+        <button type="submit">登録</button>
+    </form>
+    <p><a href="/sports">一覧に戻る</a></p>
+</body>
+</html>

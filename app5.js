@@ -44,6 +44,17 @@ app.get('/sports', (req, res) => {
   res.render('sports', { data: sports });
 });
 
+app.get('/sports_add', (req, res) => {
+  const { category, name } = req.query;
+  if ((category !== '体操' && category !== '柔道') ||
+      typeof name !== 'string' || !name.trim() || name.trim().length > 60) {
+    return res.status(400).send('競技を選び、種目・技の名前を1〜60文字で入力してください。');
+  }
+
+  sports.push({ category, name: name.trim() });
+  res.redirect('/sports');
+});
+
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
   const message2 = "Bon jour";
