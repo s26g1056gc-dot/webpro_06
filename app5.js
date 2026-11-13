@@ -90,6 +90,35 @@ app.post('/keiyo_add', express.urlencoded({ extended: false, limit: '2kb' }), (r
   res.redirect(303, '/public/keiyo_success.html');
 });
 
+// 第9回 やってみよう(3)：station2 は項目が6つあるので、追加分の3つも確認する。
+function readStation2(query) {
+  const base = readStation(query);
+  const { change = '', passengers, distance } = query;
+  if (!base ||
+      typeof change !== 'string' || change.trim().length > 100 ||
+      typeof passengers !== 'string' || !/^\d+$/.test(passengers) ||
+      !Number.isSafeInteger(Number(passengers)) ||
+      typeof distance !== 'string' || !/^\d+(\.\d+)?$/.test(distance) ||
+      !Number.isFinite(Number(distance))) {
+    return null;
+  }
+  return {
+    ...base,
+    change: change.trim(),
+    passengers: Number(passengers),
+    distance: Number(distance)
+  };
+}
+
+app.get('/keiyo2_add', (req, res) => {
+  const row = readStation2(req.query);
+  if (!row) {
+    return res.status(400).send('ID、駅コード、駅名、乗降客数、東京駅からの距離を正しく入力してください。');
+  }
+  station2.push(row);
+  res.redirect('/keiyo2');
+});
+
 app.get('/form-example', (req, res) => {
   const labels = {
     text: 'テキスト',
