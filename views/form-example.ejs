@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>フォームから届いた値</title>
+</head>
+<body>
+    <h1>フォームから届いた値</h1>
+    <dl>
+    <% for (const field of fields) { %>
+        <dt><%= field.label %></dt>
+        <dd><%= field.value || '値なし' %></dd>
+    <% } %>
+    </dl>
+    <p><a href="/public/form-example.html">入力例に戻る</a></p>
+</body>
+</html>

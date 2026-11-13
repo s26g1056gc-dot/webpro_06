@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>第7回 フォームの入力例</title>
+</head>
+<body>
+    <h1>フォームの入力例</h1>
+    <form action="/form-example" method="get" autocomplete="off">
+        <p><label for="text">テキスト</label> <input type="text" name="text" id="text" maxlength="100"></p>
+        <p><label for="number">数字</label> <input type="number" name="number" id="number"></p>
+        <p><label for="password">パスワード欄（表示の練習用。送信されません）</label>
+            <input type="password" id="password"></p>
+        <fieldset>
+            <legend>ラジオボタン</legend>
+            <input type="radio" name="radio" id="radio1" value="1"><label for="radio1">1</label>
+            <input type="radio" name="radio" id="radio2" value="2"><label for="radio2">2</label>
+        </fieldset>
+        <fieldset>
+            <legend>チェックボックス</legend>
+            <input type="checkbox" name="test1" id="test1"><label for="test1">チェック1</label>
+            <input type="checkbox" name="test2" id="test2"><label for="test2">チェック2</label>
+        </fieldset>
+        <p><label for="range">範囲</label> <input type="range" name="range" id="range" min="0" max="100"></p>
+        <p><label for="date">年月日</label> <input type="date" name="date" id="date"></p>
+        <p><label for="month">年月</label> <input type="month" name="month" id="month"></p>
+        <button type="submit">送信</button>
+    </form>
+</body>
+</html>

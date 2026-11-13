@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title><%= data.name %>の詳細</title>
+</head>
+<body>
+    <h2><%= data.name %>の詳細</h2>
+    <table>
+        <thead><tr><th>項目</th><th>データ</th></tr></thead>
+        <tbody>
+            <tr><th>ID</th><td><%= data.id %></td></tr>
+            <tr><th>駅コード</th><td><%= data.code %></td></tr>
+            <tr><th>駅名</th><td><%= data.name %></td></tr>
+            <tr><th>乗り換え線</th><td><%= data.change %></td></tr>
+            <tr><th>乗降客数</th><td><%= data.passengers %></td></tr>
+            <tr><th>東京駅からの距離（km）</th><td><%= data.distance %></td></tr>
+        </tbody>
+    </table>
+    <a href="/keiyo2">駅一覧に戻る</a>
+</body>
+</html>

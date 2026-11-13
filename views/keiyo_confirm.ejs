@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>駅の登録確認</title>
+</head>
+<body>
+    <h1>駅の登録確認</h1>
+    <p>以下の内容で登録しますか？</p>
+    <dl>
+        <dt>ID</dt><dd><%= row.id %></dd>
+        <dt>駅コード</dt><dd><%= row.code %></dd>
+        <dt>駅名</dt><dd><%= row.name %></dd>
+    </dl>
+    <form action="/keiyo_add" method="post">
+        <input type="hidden" name="id" value="<%= row.id %>">
+        <input type="hidden" name="code" value="<%= row.code %>">
+        <input type="hidden" name="name" value="<%= row.name %>">
+        <button type="submit">登録する</button>
+    </form>
+    <p><a href="/public/keiyo_add.html">入力画面に戻る</a></p>
+</body>
+</html>
